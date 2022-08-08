@@ -5,7 +5,7 @@ import userService from '../../services/userService';
 export default function UsersList(props) {
 
     const [users, setUsers] = useState([]);
-    const [newUser, setNewUser] = useState({ firstName: '', lastName: '' });
+    const [newUser, setNewUser] = useState({ name: '', password: '' });
 
     useEffect(() => //initial
     {
@@ -29,15 +29,15 @@ export default function UsersList(props) {
     const add=async()=>{
         let userId=await userService.post(newUser);
         getUsers();
-        setNewUser({ firstName: '', lastName: '' });
+        setNewUser({ name: '', password: '' });
     }
 
     return (
         <div>
             <div>
                 <h1>new user:</h1>
-        first name:<input value={newUser.firstName} name='firstName' onChange={updateFormState}></input>
-        last name:<input value={newUser.lastName} name='lastName' onChange={updateFormState}></input>
+        name:<input value={newUser.name} name='name' onChange={updateFormState}></input>
+        password:<input value={newUser.password} name='password' onChange={updateFormState}></input>
         <button onClick={add}>add user</button>
 
             </div>
@@ -46,7 +46,7 @@ export default function UsersList(props) {
                 users list: {
                     users.map(user => <>
                         <div>
-                            {user.id} {user.firstName} {user.lastName}
+                            {user.id} {user.name} {user.password}
                         </div>
                     </>)
                 }

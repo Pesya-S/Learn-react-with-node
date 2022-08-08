@@ -1,31 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './components/login/Login.css';
+
+import "bootstrap/dist/css/bootstrap.min.css"
 
 import UsersList from './components/users/UsersList'
 import ProductsList from './components/products/ProductsList'
 import { Route, Switch, Link, BrowserRouter } from "react-router-dom";
-import wordsList from './components/WordsList';
-
+import Login from './components/login/Login';
+import { useSelector, useDispatch } from "react-redux";
+import recipesList from './components/recipes/RecipesList';
+import UserContext from './store/UserContext';
+import Home from './components/Home/Home';
 function App() {
 
+  // context initial value
+  const [currentUser, setUserContext] = useState(localStorage.currentUser != null ? JSON.parse(localStorage.currentUser) : { id: -1, name: "", email: "" });
+  const userValue = { currentUser, setUserContext };
 
   return (
     <>
-      shop project:<br/>
-
-      <BrowserRouter>
-        <Link to='/usersList'>users</Link><br/>
+      <UserContext.Provider value={userValue}>
+        <BrowserRouter>
+          {/* <Link to='/usersList'>users</Link><br/> 
         <Link to='/productsList'>prducts</Link><br/>
-        <Link to='/wordsList'>words link</Link><br/>
-
-        <Switch>
-          <Route path='/usersList' component={UsersList} />
-          <Route path='/wordsList' component={wordsList} />
-          <Route path='/productsList' component={ProductsList} />
-        </Switch>
-      </BrowserRouter>
-
+        <Link to='/wordsList'>words link</Link><br/>*/}
+        {currentUser.id==-1?<Login/>:<Home/>}
+          
+        </BrowserRouter>
+      </UserContext.Provider>
     </>
     // <div className="App">
     //   <header className="App-header">

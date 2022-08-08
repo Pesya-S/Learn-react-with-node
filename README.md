@@ -16,9 +16,8 @@ But I would be happy if it would benefit you too.
 Successfully!
 
 
-1. download
-2. un-zip
-3. open in vs-code
+1. download and un-zip
+3. open in vs-code in 'Learn-react-with-node' folder
 4. run in the terminal the following command:
   
        cd server

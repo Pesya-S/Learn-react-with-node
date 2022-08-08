@@ -20,6 +20,8 @@ const port = 8080;
   })
 
   // import controllers
-  require('./Controllers/userController')(app);
+  app.use("/user", require('./Controllers/userController'));
+  app.use("/product", require('./Controllers/productController'));
+  app.use("/recipe", require('./Controllers/recipeController'));
 
 
