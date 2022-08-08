@@ -17,8 +17,8 @@ Successfully!
 
 
 1. download and un-zip
-3. open in vs-code in 'Learn-react-with-node' folder
-4. run in the terminal the following command:
+2. open in vs-code in 'Learn-react-with-node' folder
+3. run in the terminal the following command:
   
        cd server
   
@@ -28,8 +28,8 @@ Successfully!
        
        
   
-7. open new terminal
-8. run in the terminal the following command:
+4. open new terminal
+5. run in the terminal the following command:
   
        cd client
   
@@ -39,5 +39,5 @@ Successfully!
        
        
   
-9. open the sql folder, and run the script in mySql editor, like mySql-workbranch
-10. if every thing got well, you should have an app, that can add user and view your users list
+6. open the sql folder, and run the script in mySql editor, like mySql-workbranch
+7. if every thing got well, you should see in http://localhost:3000 a login form. sign in, and start to add products to your private product list.
